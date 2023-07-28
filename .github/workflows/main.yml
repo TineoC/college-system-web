@@ -1,14 +1,34 @@
-name: Build Docker Image
+name: Continuous integration (CI)
 
 on:
   push:
-    branches: ['main']
+    branches: ["main"]
   pull_request:
-    branches: ['main']
+    branches: ["main"]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  npm-install-and-lint:
+    name: NPM Install and Lint
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install NPM Dependencies
+        run: npm install
+
+      - name: Run Linting
+        run: npm run lint
+
+  docker-build:
+    name: Build docker image and publish
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         uses: actions/checkout@v3
