@@ -26,6 +26,15 @@ jobs:
       - name: Run Linting
         run: npm run lint
 
+  cypress-e2e-test:
+    name: Cypress End to End Testing
+    runs-on: ubuntu-22.04
+    needs: npm-install-and-lint
+
+    steps:
+      - name: Cypress run
+        uses: cypress-io/github-action@v5
+
   docker-build:
     name: Build docker image and publish
     runs-on: ubuntu-22.04
