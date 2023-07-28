@@ -1,45 +1,35 @@
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { Label } from '@/components/ui/label';
+import React from "react";
 
 export default function App() {
   return (
     <main>
-      <h1 className='text-3xl font-bold'>Careers programs</h1>
-      <form className='flex flex-col max-w-xs mx-4 my-2 gap-y-3'>
-        <Label htmlFor='career'>Career</Label>
-        <Select>
-          <SelectTrigger id='career'>
-            <SelectValue placeholder='Select the program career' />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value='IDS'>Software Engineering</SelectItem>
-            <SelectItem value='IND'>Industrial Engineering</SelectItem>
-            <SelectItem value='CIV'>Civil Engineering</SelectItem>
-          </SelectContent>
-        </Select>
+      <h1 className="text-3xl font-bold">Careers programs</h1>
+      <form className="flex flex-col max-w-xs mx-4 my-2 gap-y-3">
+        <label htmlFor="career">Career</label>
+        <select
+          placeholder="Select the program career"
+          name="career"
+          id="career"
+        >
+          <option value="IDS">Software Engineering</option>
+          <option value="IND">Industrial Engineering</option>
+          <option value="CIV">Civil Engineering</option>
+        </select>
 
-        <Select>
-          <SelectTrigger id='program-year'>
-            <SelectValue placeholder='Select the program year' />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value='2016'>2016</SelectItem>
-            <SelectItem value='2020'>2020</SelectItem>
-          </SelectContent>
-        </Select>
+        <label htmlFor="program-year">Program year</label>
+        <select
+          name="program-year"
+          id="program-year"
+          placeholder="Select the program year"
+        >
+          <option value="2016">2016</option>
+          <option value="2020">2020</option>
+        </select>
 
-        <Label htmlFor='program'>Class Program File</Label>
-        <Input type='file' name='program' required />
+        <label htmlFor="program-file">Program File</label>
+        <input type="file" name="program-file" id="program-file" />
 
-        <Button variant='outline'>Save</Button>
+        <button type="submit">Send</button>
       </form>
     </main>
   );
