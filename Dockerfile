@@ -8,6 +8,8 @@ RUN npm ci --production
 
 COPY . .
 
+RUN npm i typescript
+
 RUN npm run build
 
 # NGINX Web Server
