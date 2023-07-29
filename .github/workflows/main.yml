@@ -43,7 +43,7 @@ jobs:
   docker-build:
     name: Build docker image and publish
     runs-on: ubuntu-22.04
-    needs: npm-install-and-lint
+    needs: cypress-e2e-test
 
     steps:
       - name: Checkout Repository
