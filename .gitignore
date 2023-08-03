@@ -25,5 +25,4 @@ dist-ssr
 
 # Cypress
 cypress/plugins
-cypress/support
 cypress/videos
